@@ -9,12 +9,8 @@ body {
     background-color: #fdfac5;
 }
 
-h3 {
-    clear: both;
-}
-
 #timer {
-    clear: both;
+
     width: 100%;
     background-color: grey;
 }
@@ -23,8 +19,4 @@ h3 {
     width: 1%;
     height: 30px;
     background-color: green;
-}
-
-footer {
-    clear: both;
 }

@@ -1,13 +1,9 @@
 $(document).ready(function() {
 
     //Time display
-    var sessionTime = "25m";
-    var breakTime = "5m";
-
-    //Timer Bar
-    var elem = document.getElementById("timer-bar");
-    var width = 1;
-    var id = setInterval(frame, 10);
+    var sessionTime = "25";
+    var breakTime = "5";
+    var oper = ""; //operator to increment by plus or minus
 
     //get data when timer buttons are clicked
     document.getElementById("setTime").addEventListener("click", getIncrement);
@@ -19,32 +15,46 @@ $(document).ready(function() {
 
     //display times
     function displayIt(display, func) {
-        document.getElementById("work").innerHTML = sessionTime;
-        console.log(sessionTime);
-        document.getElementById("rest").innerHTML = breakTime;
+        if (func == "minus") {
+            if (display == "sessionLess") {
+                console.log(sessionTime);
+                sessionTime -= 1;
+                console.log(sessionTime);
+            }
+            if (display == "breakLess") {
+                breakTime -= 1;
+            }
+        }
+        if (func == "plus") {
+            if (display == "sessionMore") {
+                console.log(sessionTime);
+                sessionTime += 1;
+                console.log(sessionTime);
+            }
+            if (display == "breakMore") {
+                breakTime += 1;
+            }
+        }
+
+        document.getElementById("work").innerHTML = sessionTime + "m";
+        document.getElementById("rest").innerHTML = breakTime + "m";
     }
 
     //Button functions
     function compute(data) {
-        if (data == "sessionLess") {
-
-            console.log("Less Session Time!")
+        if (data == "sessionLess" || data == "breakLess") {
+            oper = "minus";
         }
-        if (data == "sessionMore") {
-
-            console.log("More Session Time!")
+        if (data == "sessionMore" || data == "breakMore") {
+            oper = "plus";
         }
-        if (data == "breakLess") {
-
-            console.log("Less Break Time!")
-        }
-        if (data == "breakMore") {
-
-            console.log("More Break Time!")
-        }
-
-        displayIt(data, data);
+        displayIt(data, oper);
     }
+
+     //Timer Bar
+    var elem = document.getElementById("timer-bar");
+    var width = 1;
+    var id = setInterval(frame, 3000); //1 second = 1000 milliseconds
 
     //Timer movement
     function frame() {

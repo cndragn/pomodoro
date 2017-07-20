@@ -1,11 +1,30 @@
-body, html {
-	margin: 0;
-	padding: 0;
-	height: 100%;
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
+
 body {
-	background-color: #fdfac5;
+    background-color: #fdfac5;
 }
+
 h3 {
-	clear: both;
+    clear: both;
+}
+
+#timer {
+    clear: both;
+    width: 100%;
+    background-color: grey;
+}
+
+#timer-bar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+}
+
+footer {
+    clear: both;
 }

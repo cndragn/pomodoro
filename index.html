@@ -17,31 +17,39 @@
         </div>
         <div id="setTime">
             <div class="row">
-                <div class="col-sm-12">
-                    <h3>Session</h3></div>
-                <div type="button" id="sessionLess" class="btn col-sm-4 lessMore">-</div>
-                <div id="work" class="col-sm-4">25m</p>
+                <div class="col-sm-6">
+                    <h3>Session</h3>
+                    <div class="row">
+                        <div type="button" id="sessionLess" class="btn col-sm-4 lessMore">-</div>
+                        <div id="work" class="col-sm-4">25m</p>
+                        </div>
+                        <div type="button" id="sessionMore" class="btn col-sm-4 lessMore">+</div>
+                    </div>
                 </div>
-                <div type="button" id="sessionMore" class="btn col-sm-4 lessMore">+</div>
-                <div class="col-sm-12">
-                    <h3>Break</h3></div>
-                <div class="row setTime"></div>
-                <div type="button" id="breakLess" class="btn col-sm-4 lessMore">-</div>
-                <div id="rest" class="col-sm-4">5m</p>
-                </div>
-                <div type="button" id="breakMore" class="btn col-sm-4 lessMore">+</div>
-            </div>
-            <div type="button" id="start" class="btn">Start</div>
-            <div id="timer">
-                <div id="timer-bar">
+                <div class="col-sm-6">
+                    <h3>Break</h3>
+                    <div class="row">
+                        <div class="row setTime"></div>
+                        <div type="button" id="breakLess" class="btn col-sm-4 lessMore">-</div>
+                        <div id="rest" class="col-sm-4">5m</p>
+                        </div>
+                        <div type="button" id="breakMore" class="btn col-sm-4 lessMore">+</div>
+                    </div>
                 </div>
             </div>
         </div>
-        <footer class="text-center">
-            <p>Developed by <a href="http://www.CandiceDavidson.com">Candice Davidson</a></p>
-        </footer>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-        <script src="script.js"></script>
+        <div type="button" id="start" class="btn">Start</div>
+        <div id="displayTime">00m 00s</div>
+        <div id="timer">
+            <div id="timer-bar">
+            </div>
+        </div>
+    </div>
+    <footer class="text-center">
+        <p>Developed by <a href="http://www.CandiceDavidson.com">Candice Davidson</a></p>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

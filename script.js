@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
     //Time display
-    var sessionTime = "25";
-    var breakTime = "5";
+    var sessionTime = 25;
+    var breakTime = 5;
     var oper = ""; //operator to increment by plus or minus
-    var displayTime = "00m 00s";
+    var displayTime = 0;
 
     //get data when timer buttons are clicked
     document.getElementById("setTime").addEventListener("click", getIncrement);
@@ -13,17 +13,19 @@ $(document).ready(function() {
         var lessMore = t.target.id;
         compute(lessMore);
     }
-        function convertFrom(milliseconds) {
-    	var totalSeconds = Math.floor(milliseconds/1000);
-    	var minutes = Math.floor(totalSeconds/60);
-    	var seconds = totalSeconds - minutes * 60;
+
+    function convertFrom(milliseconds) {
+        var totalSeconds = Math.floor(milliseconds / 1000);
+        var minutes = Math.floor(totalSeconds / 60);
+        var seconds = totalSeconds - minutes * 60;
+
     }
 
-        function convertTo(milliseconds) {
-    	var seconds = milliseconds * 60;
-    	var milliseconds = milliseconds * 1000;
-
-    	console.log("ms: " + milliseconds);
+    function convertTo(milliseconds) {
+        var seconds = milliseconds * 60;
+        var milliseconds = milliseconds * 1000;
+        console.log("ms: " + milliseconds);
+        document.getElementById("displayTime").innerHTML = sessionTime + "m " + "00s";
     }
 
     //display times
@@ -35,23 +37,22 @@ $(document).ready(function() {
             }
             if (display == "breakLess") {
                 breakTime -= 1;
+                convertTo(sessionTime);
             }
         }
         if (func == "plus") {
             if (display == "sessionMore") {
-                console.log(sessionTime);
                 sessionTime += 1;
-                console.log(sessionTime);
+                convertTo(sessionTime);
             }
             if (display == "breakMore") {
                 breakTime += 1;
+                convertTo(sessionTime);
             }
         }
 
         document.getElementById("work").innerHTML = sessionTime + "m";
         document.getElementById("rest").innerHTML = breakTime + "m";
-
-        document.getElementById("displayTime").innerHTML = sessionTime + "m" + "00s";
     }
 
     //Button functions
@@ -65,33 +66,32 @@ $(document).ready(function() {
         displayIt(data, oper);
     }
 
-     //Timer Bar
-    var elem = document.getElementById("timer-bar");
-    var width = 1;
-    var intTime = 1000;
-    var id = setInterval(frame, intTime); //1 second = 1000 milliseconds
-    var intTimeCalc = intTime;
+    document.getElementById("start").onclick = function() {
+
+        //Timer Bar
+
+        var elem = document.getElementById("timer-bar");
+        var width = 1;
+        var intTime = 1000;
+        var id = setInterval(frame, intTime); //1 second = 1000 milliseconds
+        var intTimeCalc = intTime;
 
 
+        //Timer movement
+        function frame() {
 
 
+            if (width >= 100) {
+                clearInterval(id);
+            } else {
+                width++;
 
-    //Timer movement
-    function frame() {
-    	
+                elem.style.width = width + '%';
+            }
+            intTimeCalc -= 10;
 
-        if (width >= 100) {
-            clearInterval(id);
-        } else {
-            width++;
-            
-            elem.style.width = width + '%';
         }
-        intTimeCalc -= 10;
-
     }
-
-
 
 
 });

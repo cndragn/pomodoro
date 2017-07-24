@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var sessionTime = 25;
     var breakTime = 5;
-    var countdown = 0;
+    var countdown = 25000;
 
     document.getElementById("getTime").addEventListener("click", getIncrement);
 
@@ -74,27 +74,28 @@ $(document).ready(function() {
         document.getElementById("rest").innerHTML = breakTime + "m";
     }
 
+    document.getElementById("start").onclick = function() {
+        var elem = document.getElementById("timer-bar");
+        var width = 1;
+        var intTime = countdown;
+        console.log(countdown);
 
-    var elem = document.getElementById("timer-bar");
-    var width = 1;
-    var intTime = 1000;
-    console.log(intTime);
+        var intTimeCalc = intTime;
+        var id = setInterval(frame, intTime); //1 second = 1000 milliseconds 
 
-    var intTimeCalc = intTime;
-    var id = setInterval(frame, intTime); //1 second = 1000 milliseconds 
-
-    //Timer movement
-    function frame() {
+        //Timer movement
+        function frame() {
 
 
-        if (width >= 100) {
-            clearInterval(id);
-        } else {
-            width++;
+            if (width >= 100) {
+                clearInterval(id);
+            } else {
+                width++;
 
-            elem.style.width = width + '%';
+                elem.style.width = width + '%';
+            }
+            intTimeCalc -= 10;
+
         }
-        intTimeCalc -= 10;
-
     }
 });

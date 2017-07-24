@@ -1,12 +1,33 @@
 $(document).ready(function() {
     var sessionTime = 25;
     var breakTime = 5;
+    var countdown = 0;
 
     document.getElementById("getTime").addEventListener("click", getIncrement);
 
     function getIncrement(t) {
         var lessMore = t.target.id;
         compute(lessMore);
+    }
+
+    function convertTo(milliseconds) {
+        countdown = milliseconds * 1000;
+
+        convertFrom(countdown);
+    }
+
+    function convertFrom(milliseconds) {
+        var minutes = Math.floor(milliseconds / 1000);
+        var seconds = Math.floor((milliseconds / 1000 - minutes) * 60);
+
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+        console.log(seconds);
+        
+
+        document.getElementById("displayTime").innerHTML = minutes + "m " + seconds + "s";
+
     }
 
     //Button functions
@@ -23,8 +44,8 @@ $(document).ready(function() {
     //Time
     function statusIt(status, func) {
 
-        if ((status == "sessionLess" || status == "sessionMore") && sessionTime > 0) {
-            if (func == "minus") {
+        if (status == "sessionLess" || status == "sessionMore") {
+            if (func == "minus" && sessionTime > 0) {
                 sessionTime -= 1;
                 //convertTo(status, sessionTime);
             }
@@ -34,8 +55,8 @@ $(document).ready(function() {
             }
 
         }
-        if ((status == "breakLess" || status == "breakMore") && breakTime > 0) {
-            if (func == "minus") {
+        if (status == "breakLess" || status == "breakMore") {
+            if (func == "minus" && breakTime > 0) {
                 breakTime -= 1;
                 //convertTo(status, breakTime);
             }
@@ -47,10 +68,11 @@ $(document).ready(function() {
 
 
         counter = sessionTime;
+        convertTo(counter);
 
         document.getElementById("work").innerHTML = sessionTime + "m";
         document.getElementById("rest").innerHTML = breakTime + "m";
-        document.getElementById("displayTime").innerHTML = counter + "m";
+
     }
 
 });

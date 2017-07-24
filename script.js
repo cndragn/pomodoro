@@ -24,7 +24,7 @@ $(document).ready(function() {
             seconds = "0" + seconds;
         }
         console.log(seconds);
-        
+
 
         document.getElementById("displayTime").innerHTML = minutes + "m " + seconds + "s";
 
@@ -72,7 +72,29 @@ $(document).ready(function() {
 
         document.getElementById("work").innerHTML = sessionTime + "m";
         document.getElementById("rest").innerHTML = breakTime + "m";
-
     }
 
+
+    var elem = document.getElementById("timer-bar");
+    var width = 1;
+    var intTime = 1000;
+    console.log(intTime);
+
+    var intTimeCalc = intTime;
+    var id = setInterval(frame, intTime); //1 second = 1000 milliseconds 
+
+    //Timer movement
+    function frame() {
+
+
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width++;
+
+            elem.style.width = width + '%';
+        }
+        intTimeCalc -= 10;
+
+    }
 });

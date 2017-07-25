@@ -45,7 +45,7 @@ $(document).ready(function() {
     function statusIt(status, func) {
 
         if (status == "sessionLess" || status == "sessionMore") {
-            if (func == "minus" && sessionTime > 0) {
+            if (func == "minus" && sessionTime > 1) {
                 sessionTime -= 1;
                 //convertTo(status, sessionTime);
             }
@@ -56,7 +56,7 @@ $(document).ready(function() {
 
         }
         if (status == "breakLess" || status == "breakMore") {
-            if (func == "minus" && breakTime > 0) {
+            if (func == "minus" && breakTime > 1) {
                 breakTime -= 1;
                 //convertTo(status, breakTime);
             }
@@ -73,29 +73,30 @@ $(document).ready(function() {
         document.getElementById("work").innerHTML = sessionTime + "m";
         document.getElementById("rest").innerHTML = breakTime + "m";
     }
+document.getElementById("start").onclick = function() {
+    timer(2);
+}
 
-    document.getElementById("start").onclick = function() {
-        var elem = document.getElementById("timer-bar");
-        var width = 1;
-        var intTime = countdown;
-        console.log(countdown);
-
-        var intTimeCalc = intTime;
-        var id = setInterval(frame, intTime); //1 second = 1000 milliseconds 
-
-        //Timer movement
-        function frame() {
-
-
-            if (width >= 100) {
-                clearInterval(id);
-            } else {
-                width++;
-
-                elem.style.width = width + '%';
+function timer(minutes) {
+    var seconds = 60;
+    var mins = minutes
+    function tick() {
+        var counter = document.getElementById("displayTime");
+        var current_minutes = mins-1
+        seconds--;
+        counter.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+        if( seconds > 0 ) {
+            setTimeout(tick, 1000);
+        } else {
+            if(mins > 1){
+                timer(mins-1);           
             }
-            intTimeCalc -= 10;
-
         }
+         
     }
+    tick();
+}
+
+
+
 });

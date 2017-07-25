@@ -9,14 +9,30 @@ body {
     background-color: #fdfac5;
 }
 
-#timer {
-
-    width: 100%;
-    background-color: grey;
+#getTime {
+    width: 400px;
+    margin: 0 auto;
 }
 
-#timer-bar {
-    width: 1%;
-    height: 30px;
-    background-color: green;
+.lessMore {
+    width: 35px;
+    background-color: red;
+}
+
+#work,
+#rest {
+    width: 50px;
+    padding: 6px 12px;
+}
+
+.adjust {
+    border: 1px solid red;
+    width: 122px;
+    margin: 0 auto;
+}
+.btn {
+	border-radius: 0;
+}
+#start {
+    background-color: red;
 }

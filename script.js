@@ -24,6 +24,7 @@ $(document).ready(function() {
     //Time
     function statusIt(status, func) {
 
+
         if (status == "sessionLess" || status == "sessionMore") {
             if (func == "minus" && sessionTime > 1) {
                 sessionTime -= 1;
@@ -44,44 +45,52 @@ $(document).ready(function() {
 
         document.getElementById("work").innerHTML = sessionTime + "m";
         document.getElementById("rest").innerHTML = breakTime + "m";
-        document.getElementById("displayTime").innerHTML = sessionTime;
+        document.getElementById("displayTime").innerHTML = sessionTime +":00";
     }
 
-    var inSession = false;
     var action = "";
+    var inSession = false;
 
-document.getElementById("start").onclick = function() {
-    if (!inSession){
-        timer(sessionTime);
-        document.getElementById("start").innerHTML = "Stop";
-        inSession = true;
-    } else if (inSession) {
-       clearTimeout(action);
-       document.getElementById("start").innerHTML = "Start";
-        inSession = false;
-        document.getElementById("displayTime").innerHTML = sessionTime;
-    }
-    
-}
 
-function timer(minutes) {
-    var seconds = 60;
-    var mins = minutes
-    function tick() {
-        var counter = document.getElementById("displayTime");
-        var current_minutes = mins-1
-        seconds--;
-        counter.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
-        if( seconds > 0 ) {
-            action = setTimeout(tick, 1000);
-        } else {
-            if(mins > 1){
-                timer(mins-1);           
-            }
+    document.getElementById("start").onclick = function() {
+        if (!inSession) {
+            timer(sessionTime, inSession);
+            document.getElementById("start").innerHTML = "Stop";
+            inSession = true;
+        } else if (inSession) {
+            clearTimeout(action);
+            document.getElementById("start").innerHTML = "Start";
+            inSession = false;
+            document.getElementById("displayTime").innerHTML = sessionTime;
         }
-         
+
+
+
     }
-    tick();
-}
+
+    function timer(minutes, status) {
+        var seconds = 60;
+        var mins = minutes
+
+        function tick() {
+
+            var counter = document.getElementById("displayTime");
+
+            var current_minutes = mins - 1
+            seconds--;
+            counter.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+            
+            if (seconds > 0) {
+                action = setTimeout(tick, 1000);
+            } else {
+                if (mins > 1) {
+                    timer(mins - 1);
+                }
+            }
+
+
+        }
+        tick();
+    }
 
 });

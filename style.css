@@ -8,7 +8,13 @@ html {
 body {
     background-color: #e9f2f5;
     color: #756969;
-    font-family: 'ABeeZee', sans-serif;
+    font-family: 'ABeeZee', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+
+.h1,
+h1 {
+    font-size: 4em;
 }
 
 a {
@@ -21,26 +27,32 @@ a:active {
     color: #756969;
 }
 
+.container-fluid {
+    margin-top: 100px;
+}
+
 #getTime {
     width: 400px;
     margin: 0 auto;
 }
 
 .lessMore {
-    width: 35px;
+    width: 48px;
     background-color: #ff91a3;
+    font-size: 1.5em;
+    color: #f3f3f3;
 }
 
 #work,
 #rest {
-    width: 50px;
-    padding: 6px 12px;
+    width: 54px;
+    padding: 13px 12px;
     background-color: #f3f3f3;
 }
 
 .adjust {
     border: 1px solid #f3f3f3;
-    width: 122px;
+    width: 152px;
     margin: 0 auto;
 }
 
@@ -51,6 +63,11 @@ a:active {
 #start {
     background-color: #c4e2c6;
     margin: 25px 0;
+    border: 3px solid #f3f3f3;
+    font-size: 1.2em;
 }
 
-//Countdown Animation
+#displayTime {
+    font-size: 5em;
+    color: #756969;
+}

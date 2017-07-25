@@ -10,26 +10,6 @@ $(document).ready(function() {
         compute(lessMore);
     }
 
-    function convertTo(milliseconds) {
-        countdown = milliseconds * 1000;
-
-        convertFrom(countdown);
-    }
-
-    function convertFrom(milliseconds) {
-        var minutes = Math.floor(milliseconds / 1000);
-        var seconds = Math.floor((milliseconds / 1000 - minutes) * 60);
-
-        if (seconds < 10) {
-            seconds = "0" + seconds;
-        }
-        console.log(seconds);
-
-
-        document.getElementById("displayTime").innerHTML = minutes + "m " + seconds + "s";
-
-    }
-
     //Button functions
     function compute(data) {
         if (data == "sessionLess" || data == "breakLess") {
@@ -47,34 +27,27 @@ $(document).ready(function() {
         if (status == "sessionLess" || status == "sessionMore") {
             if (func == "minus" && sessionTime > 1) {
                 sessionTime -= 1;
-                //convertTo(status, sessionTime);
             }
             if (func == "plus") {
                 sessionTime += 1;
-                //convertTo(status, sessionTime);
             }
 
         }
         if (status == "breakLess" || status == "breakMore") {
             if (func == "minus" && breakTime > 1) {
                 breakTime -= 1;
-                //convertTo(status, breakTime);
             }
             if (func == "plus") {
                 breakTime += 1;
-                //convertTo(status, breakTime);
             }
         }
-
-
-        counter = sessionTime;
-        convertTo(counter);
 
         document.getElementById("work").innerHTML = sessionTime + "m";
         document.getElementById("rest").innerHTML = breakTime + "m";
     }
+
 document.getElementById("start").onclick = function() {
-    timer(2);
+    timer(sessionTime);
 }
 
 function timer(minutes) {
@@ -96,7 +69,5 @@ function timer(minutes) {
     }
     tick();
 }
-
-
 
 });

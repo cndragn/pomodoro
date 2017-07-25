@@ -61,7 +61,7 @@ $(document).ready(function() {
             clearTimeout(action);
             document.getElementById("start").innerHTML = "Start";
             inSession = false;
-            document.getElementById("displayTime").innerHTML = sessionTime +":00";
+            document.getElementById("displayTime").innerHTML = sessionTime + ":00";
         }
 
 
@@ -79,7 +79,13 @@ $(document).ready(function() {
             var current_minutes = mins - 1
             seconds--;
             counter.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
-            
+
+            if (status === false) {
+                document.getElementById("message").innerHTML = "<h3>Get to work!</h3>";
+            }
+            if (status === true) {
+                document.getElementById("message").innerHTML = "<h3>Take a break!</h3>";
+            }
             if (seconds > 0) {
                 action = setTimeout(tick, 1000);
             } else {
@@ -87,10 +93,21 @@ $(document).ready(function() {
                     timer(mins - 1);
                 }
             }
-
-
+            if (mins == 1 && seconds == 0 && status === true) {
+                clearInterval(action);
+                document.getElementById("start").innerHTML = "Start";
+                document.getElementById("message").innerHTML = "<h3>Get to work!</h3>";
+                document.getElementById("displayTime").innerHTML = sessionTime + ":00";
+            }
+            if (mins == 1 && seconds == 0 && status === false) {
+                clearInterval(action);
+                timer(breakTime, inSession);
+                inSession = false;
+            }
         }
+
         tick();
+        //document.getElementById("displayTime").innerHTML = "halp!";
     }
 
 });

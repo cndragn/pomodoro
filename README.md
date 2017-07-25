@@ -21,6 +21,8 @@
 * JavaScript
 * jQuery
 
+### Credits
+Notification Sound provided by [OrangeFreeSounds.com](http://www.orangefreesounds.com/)
 
 
 

@@ -32,8 +32,12 @@ $(document).ready(function() {
             if (func == "plus") {
                 sessionTime += 1;
             }
-
+            /*
+                        if (sessionTime < 10 && sessionTime > 1) {
+                            sessionTime = "0" + sessionTime;
+                        } */
         }
+
         if (status == "breakLess" || status == "breakMore") {
             if (func == "minus" && breakTime > 1) {
                 breakTime -= 1;
@@ -42,6 +46,9 @@ $(document).ready(function() {
                 breakTime += 1;
             }
         }
+        console.log(sessionTime);
+
+
 
         document.getElementById("work").innerHTML = sessionTime + "m";
         document.getElementById("rest").innerHTML = breakTime + "m";
@@ -64,13 +71,12 @@ $(document).ready(function() {
             document.getElementById("displayTime").innerHTML = sessionTime + ":00";
         }
 
-
-
     }
 
     function timer(minutes, status) {
         var seconds = 60;
         var mins = minutes
+        var audio = new Audio('notification-sound.mp3');
 
         function tick() {
 
@@ -93,17 +99,22 @@ $(document).ready(function() {
                     timer(mins - 1);
                 }
             }
-            if (mins == 1 && seconds == 0 && status === true) {
+            if (mins == 1 && seconds == 0) {
+                audio.play();
                 clearInterval(action);
-                document.getElementById("start").innerHTML = "Start";
-                document.getElementById("message").innerHTML = "<h3>Get to work!</h3>";
-                document.getElementById("displayTime").innerHTML = sessionTime + ":00";
+                if (status === true) {
+
+                    document.getElementById("start").innerHTML = "Start";
+                    document.getElementById("message").innerHTML = "<h3>Get to work!</h3>";
+                    document.getElementById("displayTime").innerHTML = sessionTime + ":00";
+                }
+                if (status === false) {
+
+                    timer(breakTime, inSession);
+                    inSession = false;
+                }
             }
-            if (mins == 1 && seconds == 0 && status === false) {
-                clearInterval(action);
-                timer(breakTime, inSession);
-                inSession = false;
-            }
+
         }
 
         tick();

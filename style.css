@@ -27,12 +27,8 @@ a:active {
     color: #756969;
 }
 
-.container-fluid {
-    margin-top: 100px;
-}
-
 #getTime {
-    width: 400px;
+    max-width: 400px;
     margin: 0 auto;
 }
 
@@ -70,4 +66,20 @@ a:active {
 #displayTime {
     font-size: 5em;
     color: #756969;
+}
+
+@media (min-width: 769px) {
+    .container-fluid {
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 425px) {
+    .h1,
+    h1 {
+        font-size: 8vh;
+    }
+    #displayTime {
+        font-size: 10vh;
+    }
 }

@@ -44,10 +44,24 @@ $(document).ready(function() {
 
         document.getElementById("work").innerHTML = sessionTime + "m";
         document.getElementById("rest").innerHTML = breakTime + "m";
+        document.getElementById("displayTime").innerHTML = sessionTime;
     }
 
+    var inSession = false;
+    var action = "";
+
 document.getElementById("start").onclick = function() {
-    timer(sessionTime);
+    if (!inSession){
+        timer(sessionTime);
+        document.getElementById("start").innerHTML = "Stop";
+        inSession = true;
+    } else if (inSession) {
+       clearTimeout(action);
+       document.getElementById("start").innerHTML = "Start";
+        inSession = false;
+        document.getElementById("displayTime").innerHTML = sessionTime;
+    }
+    
 }
 
 function timer(minutes) {
@@ -59,7 +73,7 @@ function timer(minutes) {
         seconds--;
         counter.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
         if( seconds > 0 ) {
-            setTimeout(tick, 1000);
+            action = setTimeout(tick, 1000);
         } else {
             if(mins > 1){
                 timer(mins-1);           

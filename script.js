@@ -45,7 +45,7 @@ $(document).ready(function() {
 
         document.getElementById("work").innerHTML = sessionTime + "m";
         document.getElementById("rest").innerHTML = breakTime + "m";
-        document.getElementById("displayTime").innerHTML = sessionTime +":00";
+        document.getElementById("displayTime").innerHTML = sessionTime + ":00";
     }
 
     var action = "";
@@ -61,7 +61,7 @@ $(document).ready(function() {
             clearTimeout(action);
             document.getElementById("start").innerHTML = "Start";
             inSession = false;
-            document.getElementById("displayTime").innerHTML = sessionTime;
+            document.getElementById("displayTime").innerHTML = sessionTime +":00";
         }
 
 

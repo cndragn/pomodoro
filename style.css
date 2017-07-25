@@ -6,7 +6,19 @@ html {
 }
 
 body {
-    background-color: #fdfac5;
+    background-color: #e9f2f5;
+    color: #756969;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+a {
+    color: #756969;
+    text-decoration: underline;
+}
+
+a:hover,
+a:active {
+    color: #756969;
 }
 
 #getTime {
@@ -16,23 +28,29 @@ body {
 
 .lessMore {
     width: 35px;
-    background-color: red;
+    background-color: #ff91a3;
 }
 
 #work,
 #rest {
     width: 50px;
     padding: 6px 12px;
+    background-color: #f3f3f3;
 }
 
 .adjust {
-    border: 1px solid red;
+    border: 1px solid #f3f3f3;
     width: 122px;
     margin: 0 auto;
 }
+
 .btn {
-	border-radius: 0;
+    border-radius: 0;
 }
+
 #start {
-    background-color: red;
+    background-color: #c4e2c6;
+    margin: 25px 0;
 }
+
+//Countdown Animation

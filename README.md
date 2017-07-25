@@ -12,7 +12,7 @@
 
 **View My Project:** http://candicedavidson.com/portfolio/pomodoro/ 
 
-![Pomodoro Clock](http://candicedavidson.com/images/pomodoro.png)
+![Pomodoro Clock](https://github.com/cndragn/portfolio/blob/master/images/pomodoro.png)
 
 ## Technologies Used
 

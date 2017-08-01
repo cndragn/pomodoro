@@ -1,18 +1,16 @@
 # Pomodoro Clock
-
-* **Challenge:** [Build a Pomodoro Clock](https://www.freecodecamp.org/challenges/build-a-pomodoro-clock)
-* **Objective:**
-  * Build an app that is functionally similar to this: https://codepen.io/FreeCodeCamp/full/aNyxXR
-* **User Stories:**
-  * I can start a 25 minute pomodoro, and the timer will go off once 25 minutes has elapsed.
-  * I can reset the clock for my next pomodoro.
-  * I can customize the length of each pomodoro.
+Based on the pomodoro method to work for 25 minutes then take a 5 minute break. Helps motivate you to work on an overwhelming project, 25 minutes at a time, and also keeps you sane by reminding you to step away and take a breather.
   
 ## Project Details
 
-**View My Project:** http://candicedavidson.com/portfolio/pomodoro/ 
+**View My Project:** http://candicedavidson.com/portfolio/pomodoro/
 
-![Pomodoro Clock](https://github.com/cndragn/portfolio/blob/master/images/pomodoro.png)
+![Local Weather App](https://github.com/cndragn/portfolio/blob/master/images/pomodoro.png)
+
+## Features
+  * Use default times of a 25 minute session and 5 minute break, or set your own.
+  * Ability to reset the clock for the the next session.
+  * An alarm will go off to alert you the session / break time has elapsed.
 
 ## Technologies Used
 
@@ -21,9 +19,6 @@
 * JavaScript
 * jQuery
 
-### Credits
-Notification Sound provided by [OrangeFreeSounds.com](http://www.orangefreesounds.com/)
-
-
-
-  
+## Acknowledgements
+Project idea: [FFC Build a Pomodoro Clock](https://www.freecodecamp.org/challenges/build-a-pomodoro-clock)<br>
+Notification Sound: [OrangeFreeSounds.com](http://www.orangefreesounds.com/)
